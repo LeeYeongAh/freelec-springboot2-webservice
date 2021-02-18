@@ -5,6 +5,7 @@ import com.jojoldu.book.springboot.web.dto.PostsResponseDto;
 import com.jojoldu.book.springboot.web.dto.PostsSaveRequestDto;
 import com.jojoldu.book.springboot.web.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
@@ -32,5 +33,26 @@ public class PostsApiController {
     public Long delete(@PathVariable Long id){
         postsService.delete(id);
         return id;
+    }
+    @GetMapping("/supporter")
+    public String Supporter(Model model){
+
+        return "<html>\n" +
+                "<body bgcolor=#d4a3ae>\n" +
+                "\n" +
+                "<center>\n" +
+                "\n" +
+                "    <h1> supporter </h1><br>\n" +
+                "\n" +
+                "    <form method=\"POST\", action=\"/supporterpage\">\n" +
+                "        <b> user name :  <input type=\"text\", name='a', placeholder=\"enter 1\"> <br><br></b>\n" +
+                "        <input type=\"submit\" , value='predict!' >\n" +
+                "    </form>\n" +
+                "\n" +
+                "\n" +
+                "</center>\n" +
+                "\n" +
+                "</body>\n" +
+                "</html>\n";
     }
 }
